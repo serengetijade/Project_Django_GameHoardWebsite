@@ -23,19 +23,33 @@ Specific tasks were assigned by the sprint leader, to be completed within a cert
 # Code Summary
 ![CRUD](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/readme/GameHoardCRUD.gif)
 
-## [Models](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/models.py)
-Two databases were created for this project: 
-- Game databaste: record user form input of games in their collection.
-- WishList database: populate a form for each beautifulsoup and API result, and then create or delete a record by clicking 'like' button.
-https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/f484f4bf1e64d23b1a1adc751e37468c578a3076/models.py#L3
-
 ## Index Page
-The index (home) page is where users can create a database record for a game in their collection, access a link to another page to edit it, view records in the WishList DB, view rendered beautifulsoup content, and view rendered API content. It is where a lot of other functions come together. Multiple CRUD fuctions have been abstracted, so the user experiences everything seamlessly on (almost) one page. 
-- CREATE function is accessed via an included modal from [GH_create.html](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_create.html) (see modal instructions in [gameHoard.js](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/static/js/gameHoard.js)). The function must be included as part of this view, since here is where the CREATE function is actually performed (by being included, the modal is part of this page)..
+The [index (home) page](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_index.html) is where users can create a database record for a game in their collection, access a link to another page to edit it, view records in the WishList DB, view rendered beautifulsoup content, and view rendered API content. 
+It is where several functions come together. These CRUD functions have been abstracted, so the user experiences everything seamlessly on (almost) one page. 
+- CREATE function is accessed via an included modal from: [GH_create.html](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_create.html) (see modal instructions in [gameHoard.js](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/static/js/gameHoard.js)). The function must be included as part of this view, since here is where the CREATE function is actually performed (by being included, the modal is part of this page)..
 - READ function in this view accesses the model manager and returns all records. The html content is included from [GH_read.html](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_read.html), where it is parsed as as_p and as as_table.
-- BEAUTIFULSOUP web scraping is rendered by calling the create_soup function
-- API info is passed in from the api and apiQuery functions
-[Index Page views function](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/9d7b2043b4d96800cb4f34ba4e2b358bf5ce7c85/views.py#L34)
+- Beautifulsoup web scraping is rendered by calling the create_soup function and passing its content in via a variable.
+- API info is passed in from the api and apiQuery functions.
+https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c233ee5333e5dc06daf7c79c938c2228/views.py#L34-L69
+
+## Models
+Two databases [models](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/models.py) were created for this project: 
+- Game databaste: create a record from form inputs of games in the user's collection. 
+- WishList database: populate a form for each beautifulsoup and API result, and then create or delete a record by clicking 'like' button.
+https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c233ee5333e5dc06daf7c79c938c2228/models.py#L3-L41
+
+## Create ~ Game database
+This page is accessed by clicking on an element (button) in GH_index.html.
+By using the django include tag, it's like this content is part of the [GH_index document](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_index.html).
+Therefore, the form and the function to create a record, is defined as part of the [GH_index function in views.py](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/views.py).
+JavaScript is used to show and hide this element as a modal pop up.
+
+
+
+
+
+
+
 
 
 

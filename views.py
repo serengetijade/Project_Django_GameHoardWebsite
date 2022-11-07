@@ -29,8 +29,8 @@ def include_templates(request):
 # Notes: The index (home) page is where users can create a database record for a game in their collection, access a link to another page to edit it, view records in the WishList DB, view rendered beautifulsoup content, and view rendered API content.
 #   CREATE function is accessed via an included modal from GH_create.html (see modal instructions in gameHoard.js). The function must be included as part of this view, since here is where the CREATE function is actually performed (the modal is part of this page)..
 #   READ function in this view accesses the model manager and returns all records. The html content is included from GH_read.html, where it is parsed as as_p and as as_table.
-#   BEAUTIFULSOUP web scraping is rendered via the create_soup function
-#   API info is passed in from the api and apiQuery functions
+#   Beautifulsoup web scraping is rendered by calling the create_soup function and passing its content in via a variable.
+#   API info is passed in from the api and apiQuery functions.
 def GH_index(request):
     #CREATE a RECORD IN THE DB
     form = GameForm(data=request.POST or None)  # Declare a variable 'form' and equate it to the existing Account form (as defined in forms.py); request.Post or None is the default syntax to take any input from the form and put it into this form.
