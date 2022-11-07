@@ -1,0 +1,49 @@
+<!--READ API QUERY BASED ON USER INPUT-->
+<div class="apiQuery center" id="videoGames" >
+    <h3>Search for a Game</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <!--Input element allows the user to enter a 'search' term-->
+        <input name="inputquery" type="text">
+        <!--Submit 'triggers' apiQuery(request) in views.py -->
+        <button class="submitBtn" type="submit">Search</button>
+    </form>
+
+    <!--READ AND RENDER results of API query above-->
+    <!--If multiple API calls are used, MUST use a (for) loop so that the correct API response is used-->
+    {% for i in queryList %}
+    <div class="container growtext position-relative">
+        <a href="https://www.cheapshark.com/search#q:{{ i.query }}" target="_blank" class="anchor">
+            <img src="{{ i.thumb }}">
+            <h3>{{ i.title }}</h3>
+            <p>Lowest price found:</p>
+            <p class="salePrice"><b>$ {{i.salePrice}}</b></p>
+        </a>
+        {% include "GameHoard/GH_create_wishlist.html" %}
+    </div>
+    <br>
+    <a href="https://store.steampowered.com/search/?term={{ i.title }}" target="_blank">
+        <button type="button">Check Price on Steam</button>
+    </a>
+    {% endfor %}
+</div>
+
+<br>
+
+<!--READ API results, iterate through, and render each record as an element-->
+<div class="api flex center" >
+        {% for i in responseList %}
+        <div class="container position-relative">
+            <a href="https://www.cheapshark.com/redirect?dealID={{ i.id }}" target="_blank" class="anchor">
+                <img src="{{ i.thumb }}">
+                <h3>{{ i.title }}</h3>
+                <p>Rating: {{ i.rating }}%</p>
+                <p class="salePrice"><b>$ {{ i.salePrice }}</b></p>
+                <p>Normal Price: <s>&nbsp;$ {{ i.fullPrice }}&nbsp;</s></p>
+            </a>
+            {% include "GameHoard/GH_create_wishlist.html" %}
+        </div>
+
+        {% endfor %}
+</div>
+

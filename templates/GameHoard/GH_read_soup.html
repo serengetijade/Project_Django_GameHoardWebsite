@@ -1,0 +1,17 @@
+<div class="soup flex center">
+    {% for i in soupList %}
+    <div class="container position-relative">
+        <a href="{{ i.href }}" target="_blank" class="anchor">
+            <img src="{{ i.thumb }}">
+            <h3>{{ i.title }}</h3>
+            <p>- {{ i.author }}</p>
+            <div class="text">
+                <p><small>{{ i.date }}</small></p>
+                <p>{{ i.excerpt }}</p>
+            </div>
+        </a>
+        <!-- CREATE A RECORD IN WISHLIST DB-->
+        {% include "GameHoard/GH_create_wishlist.html" %}
+    </div>
+    {% endfor %}
+</div>

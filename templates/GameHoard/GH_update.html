@@ -1,0 +1,28 @@
+{% extends "GameHoard_base.html" %}
+{% block title %}Edit Your Hoard{% endblock %}
+{% block content %}
+<!--BUT HOW DOES IT KNOW WHICH FORM/OBJECT TO CALL???-->
+<!--This content is accessed by clicking on an element (anchor) in another document (GH_read.html)-->
+<!--The 'UpdateGame' is a 'shortcut' defined in urls.py, which points the way to a function in views.py...-->
+<!--the views.py function (in this case named 'updateGameDB') passes in the primary key from the element that was initially clicked. -->
+<div class="update-item menuDrop center">
+    <div class="container">
+        <h1>Update Details</h1>
+        <form method="POST">    <!-- The action directs to a new folder: go back one directory then into 'details' -->
+            <!--Cross Site Request Forgery (csrf_token) Protection-->
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_p }}
+            <div class="buttons">
+                <button class="submitBtn" type="submit">Update</button>
+                <button class="deleteBtn" type=button onclick="opendeletemodal()">DELETE</button>
+                <a href="{% url 'GameHoard' %}"><button type="button">Cancel</button></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--JavaScript is used to toggle this modal when the DELETE button (see above) is clicked-->
+{% include "GameHoard/GH_delete.html" %}
+
+{% endblock %}

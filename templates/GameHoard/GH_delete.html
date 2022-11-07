@@ -1,0 +1,22 @@
+<!--BUT HOW DOES IT KNOW WHICH FORM/OBJECT TO CALL???-->
+<!--The form and the function to delete a record, is defined as part of the update function in views.py-->
+<!--By using the django include tag, it's like this content is part of the GH_index document, which is why the above statement is so-->
+<!--This content is accessed by clicking on an element (button) in GH_update.html-->
+<!--JavaScript is used to show and hide this element as a modal pop up -->
+
+<div class="modal" id="delete-item">
+    <div class="container center">
+        <h1>CONFIRM DELETE!</h1>
+        <p>Are you certain that you would like to delete?
+            <br><small>-This action cannot be undone-</small>
+        </p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="buttons">
+                <!--The submit button MUST be INSIDE the form tag to work-->
+                <button type="submit" class="deleteBtn">DELETE</button>
+                <button type="button" onclick="closedeletemodal()">Cancel</button></a>
+            </div>
+        </form>
+    </div>
+</div>

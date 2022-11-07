@@ -1,0 +1,83 @@
+{% extends "GameHoard_base.html" %}
+{% block title %}Game Hoard{% endblock %}
+{% block content %}
+<!--Templates are declared in settings.py TEMPLATES = [ 'DIRS': [os.path.join(BASE_DIR, 'templates')],-->
+
+<a href="#GH_index-banner"><button class="pageTop">🔝</button></a>
+
+<div class="banner" id="GH_index-banner">
+    <div class="banner-container">
+        <h1><span>&nbsp; 🎲 Game Hoard 🎮 &nbsp;</span></h1>
+        <h3><span>&nbsp;&nbsp;Track the treasures in your Hoard so that you can share them with your fellow <s>dragons</s> friends.&nbsp;&nbsp;</span></h3>
+    </div>
+</div>
+
+<section id="gameLibrary" class="gameLibrary">
+    <div class="center bannerDrop">
+        <h1 class>Game 📚 Library</h1>
+        <button type="button" onclick="openaddGame()">+Add Game</button>
+        <button type="button" id="showHideElement" onclick="showHideElement()">Show List</button>
+    </div>
+
+    <!--JavaScript is used to toggle these modals when +Add Game button (see above) is clicked-->
+    {% include "GameHoard/GH_create.html" %}    <!--CREATE RECORD and add to DB-->
+    <!--To include this content, use a variable = Game.GameModel.all() to call the function's contents into this page's (the parent page's) views.py function -->
+    {% include "GameHoard/GH_read.html" %}      <!--READ the DB and display details-->
+</section>
+
+<hr>
+
+<section id="wishlist" class="center">
+    <h1>Wish 🦗 List</h1>
+    <!--To include this content, use a variable = WishList.WishListModelMgr.all() to call the function's contents into this page's (the parent page's) views.py function -->
+    {% include "GameHoard/GH_read_wishlist.html" %}
+</section>
+
+<hr>
+
+<section id="resources" class="center">
+    <h1>Gaming Resources</h1>
+    <div class="vid-container flex">
+        <div class="card">
+            <!--Copy iframe code from YouTube, delete "...width="560" height="315"..."-->
+            <iframe src="https://www.youtube.com/embed/q6W68XrmYTA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <h3 class="card-title">Board Game Reviews by Dice Tower</h3>
+                <p class="card-text">This channel has been around for a long time and is a great resource for game reviews and light tutorials.</p>
+        </div>
+        <div class="card">
+            <iframe src="https://www.youtube.com/embed/Mc2A6qmvWj8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <h3 class="card-title">Skyrim V Anniversary Edition</h3>
+                <p class="card-text">You need to play this.</p>
+        </div>
+        <div class="card">
+            <iframe src="https://www.youtube.com/embed/-SaEWCyN2JI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <h3 class="card-title">Best Games of 2021</h3>
+                <p class="card-text">These are some of the best that 2021 had to offer.</p>
+        </div>
+    </div>
+
+    <h2>Reading Material:</h2>
+    <p>📒 <a href="https://www.boardgamequest.com/category/top-ten-game-lists/">Top 10 Lists from BoardGameQuest</a></p>
+    <p>📒 Reviews, Kickstarters, Tutorials, oh my! <a href="https://boardgamegeek.com/">Board Game Geek</a> has it all.</p>
+    <p>📒 <a href="https://www.igdb.com/">IGDB</a>: An extensive guide to video games.</p>
+</section>
+
+<hr>
+
+<section id="reviews" class="center">
+    <h1>Board Game Reviews from <a href="https://www.boardgamequest.com/category/game-reviews/">boardgamequest.com</a></h1>
+    <p><small>See my <a href="{% url 'BeautifulSoup' %}">Beautiful Soup</a> page for source info</small></p>
+    <!--To include this content, use a variable = create_soupList()['soupList'] to call the function's contents into this page's (the parent page's) views.py function -->
+    {% include "GameHoard/GH_read_soup.html" %}
+</section>
+
+<hr>
+
+<section class="center">
+    <h1>Video Games from <a href="https://store.steampowered.com/">Steam</a></h1>
+    <p><small>See the <a href="{% url 'API' %}">API template</a> for info about the API source.</small></p>
+    <!--To include this content, use variables = api()['responseList'] and = apiQuery(request)['responseList'] to call the function's contents into this page's (the parent page's) views.py function -->
+    {% include "GameHoard/GH_read_api.html" %}
+</section>
+
+{% endblock %}

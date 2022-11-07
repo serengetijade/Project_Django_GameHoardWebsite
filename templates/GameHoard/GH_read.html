@@ -1,0 +1,65 @@
+<!--GAME CARDS-->
+<!--READ GameDB, iterate through, and render each record as an element-->
+<div class="gameDB flex" id="display-item">
+    {% for i in tableContents %}
+        <!--Clicking the anchor element will trigger an url.py 'shortcut': UpdateGame, and pass in the object's primary key-->
+        <!--Syntax: url 'shortcut' i.pk.... -->
+        <!--'shortcut' points to GH_update.html page-->
+        <!--i.Name passes in the primary key: i is the current iteration of the loop, and Name is the primary key (as defined in models.py)-->
+        <a href="{% url 'UpdateGame' i.Name %}" class="anchor">
+            <div class="container center">
+                <h4>GAME CARD</h4>
+                <h3>{{i.Name}}</h3>
+                <p><small>- {{i.Platform}} - </small></p>
+                <p>{{i.Rating}}</p>
+                <p>{{i.Notes}}</p>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+<!--END GAME CARDS-->
+
+<br>
+
+<!--TABLE OF GAMES-->
+<!--JavaScript is used to toggle the modal when +Show List button is clicked (from GH_index.html page)-->
+<table id="gameDBtable" class="gameDBtable">
+    <colgroup>
+        <col id="column1">
+        <col id="column2">
+        <col id="column3">
+        <col id="column4">
+        <col id="column5">
+        <col id="column6">
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Game Name</th>
+            <th>Platform</th>
+            <th>Rating</th>
+            <th>Notes</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in tableContents %}
+        <tr>
+            <td>{{i.Name}}</td>
+            <td>{{i.Platform}}</td>
+            <td>{{i.Rating}}</td>
+            <td>{{i.Notes}}</td>
+            <td>
+                <a href="{% url 'UpdateGame' i.Name %}"><button type="button">Edit</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="5"><button type="button" onclick="showHideElement()">&nbsp;Hide List&nbsp;</button></td>
+        </tr>
+    </tfoot>
+</table>
+
+<!--END TABLE OF GAMES-->
+

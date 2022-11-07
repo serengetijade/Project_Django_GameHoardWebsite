@@ -1,0 +1,30 @@
+{% extends "GameHoard_base.html" %}
+{% block title %}Game Hoard{% endblock %}
+{% block content %}
+
+<div class="banner" id="GH_beautifulsoup-banner">
+    <div class="banner-container">
+        <h1><span>&nbsp; BeautifulSoup &nbsp;</span></h1>
+        <h3><span>&nbsp;&nbsp;Web Scraping&nbsp;</span></h3>
+    </div>
+</div>
+
+<section class="center bannerDrop">
+    <h1>Source Credit</h1>
+    <p>Visit <a href="https://www.boardgamequest.com/category/game-reviews/">boardgamequest.com</a> to see more articles like this!</p>
+
+    <hr>
+
+    <h1>Board Game Reviews</h1>
+    <!--To include this content, add a variable to call =create_soupList()["soupList"] into this page's (the parent page's) views.py function -->
+    {% include "GameHoard/GH_read_soup.html" %}
+
+    <hr>
+
+    <h1>Content to Scrape</h1>
+    <div id="soupSourceCode">
+        <!--To include this content, use a variable = create_soupList()['soupChildren'] to call the function's contents into this page's (the parent page's) views.py function -->
+        <p>{{ soupChildren }}</p>
+    </div>
+</section>
+{% endblock %}

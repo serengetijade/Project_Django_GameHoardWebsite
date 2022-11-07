@@ -1,0 +1,25 @@
+<!--BUT HOW DOES IT KNOW WHICH FORM/OBJECT TO CALL???-->
+<!--The form and the function to create a record, is defined as part of the GH_index function in views.py-->
+<!--By using the django include tag, it's like this content is part of the GH_index document, which is why the above statement is so-->
+<!--This content is accessed by clicking on an element (button) in GH_index.html-->
+<!--JavaScript is used to show and hide this element as a modal pop up -->
+
+<!--CREATE RECORD/ADD ITEM TO DB-->
+<div class="modal" id="add-item"> <!--JavaScript is used to show/hide this container: see gameHoard.js-->
+    <div class="container center">
+        <h1>Add a Game to your Library</h1>
+        <h1>👾 🎲 🎮 </h1>
+        <form method="POST"> <!-- Replace this with the Django Form -->
+            <!--Cross Site Request Forgery (csrf_token) Protection-->
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_p }}      <!--Reference the context form, as a paragraph tag-->
+            <div class="buttons">
+                <!--The submit button MUST be INSIDE the form tag to work-->
+                <button type="submit" class="submitBtn">Add to Library</button>
+                <!--JavaScript is used to close this modal when clicked-->
+                <button type="button" onclick="closeForm()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

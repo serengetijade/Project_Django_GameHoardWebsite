@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="{% static '/js/gameHoard.js' %}" defer></script>
+		<link rel="stylesheet" type="text/css" href="{% static '/css/gameHoard.css' %}">
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Changa&family=Roboto&display=swap" rel="stylesheet">
+		<link rel="icon" type="image/x-icon" href="{%  static  '/img/videogame_asset_FILL0_wght400_GRAD0_opsz48.png' %}">
+		<!--Page title-->
+		<title>{% block title%}{% endblock %}</title>
+	</head>
+
+	<header>
+		<div class="menu-container">
+			<div class="menu">
+				<!-- Add in links based on your registered URLs -->
+				<a href="{% url 'GameHoard' %}" class="menu-item growtext">Home</a>
+				<a href="{% url 'GameHoard' %}#gameLibrary" class="menu-item growtext">Game Library</a>
+				<a href="{% url 'GameHoard' %}#wishlist" class="menu-item growtext">Wish List</a>
+				<a href="{% url 'GameHoard' %}#resources" class="menu-item growtext">Resources</a>
+				<a href="{% url 'GameHoard' %}#reviews" class="menu-item growtext">Board Games</a>
+				<a href="{% url 'GameHoard' %}#videoGames" class="menu-item growtext">Video Games</a>
+				<a href="https://github.com/serengetijade" class="menu-item" target="_blank"><img src="{% static '/img/GitHub32.png' %}" alt="My gitHub portfolio"></a>
+				<a href="https://www.linkedin.com/in/serengeti-jade-abreu-906ab2249/" class="menu-item" target="_blank"><img src="{% static '/img/Linkedin32.png' %}" alt="My LinkedIn profile"></a>
+			</div>
+		</div>
+	</header>
+
+	<body>
+		<main>
+			<div class="">
+				{% block content %}{% endblock %}
+			</div>
+		</main>
+
+		<footer>
+			<a href="https://github.com/serengetijade" target="_blank"><img src="{%  static  '/img/GitHub32.png' %}" alt="My gitHub portfolio"></a>
+			<p><a href="https://www.linkedin.com/in/serengeti-jade-abreu-906ab2249/" target="_blank">Serengeti Jade</a> | 2022 | All rights reserved</p>
+		</footer>
+	</body>
+
+</html>

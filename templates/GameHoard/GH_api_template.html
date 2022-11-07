@@ -1,0 +1,36 @@
+{% extends "GameHoard_base.html" %}
+{% block title %}API template{% endblock %}
+{% block content %}
+
+<div class="banner" id="GH_api_template-banner">
+    <div class="banner-container">
+        <h1><span>&nbsp; API &nbsp;</span></h1>
+        <h3><span>&nbsp;&nbsp;Application Programming Interface&nbsp;</span></h3>
+    </div>
+</div>
+
+<section class="center bannerDrop">
+    <h1>What is an API?</h1>
+    <p>An API is how computers 'talk' to each other. It is part of a computer program that can send or receive information to/from other programs.
+        <br>JSON (JavaScript Object Notation) is the primary format in which data is passed back and forth to APIs.
+    </p>
+
+    <hr>
+
+    <h1>Source Credit</h1>
+    <p>Visit <a href="https://apidocs.cheapshark.com/#c33f57dd-3bb3-3b1f-c454-08cab413a115">CheapShark's</a> documentation to read about this API</p>
+
+    <hr>
+
+    <!--To include this content, use a variable = apiQuery(request)['responseList'] and variable = api()['responseList'] to call the functions' contents into this page's (the parent page's) views.py function -->
+    {% include "GameHoard/GH_read_api.html" %}
+
+    <hr>
+
+    <h1>API Source Content</h1>
+    <div id="apiSourceCode">
+        <!--To include this content, use a variable = api()['response'] to call the function's contents into this page's (the parent page's) views.py function -->
+        {{ response }}
+    </div>
+</section>
+{% endblock %}

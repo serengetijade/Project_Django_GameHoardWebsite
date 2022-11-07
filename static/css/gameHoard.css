@@ -1,0 +1,450 @@
+/*----------GENERAL STYLING----------*/
+html{
+    scroll-behavior: smooth; /*specifies whether to smoothly animate the scroll position, instead of a straight jump*/
+    box-sizing: border-box;  /*include the padding and border in an element's total width and height. Default value: content-box*/
+}
+body{
+    font-family: 'Changa', 'Roboto';
+    margin: 0; /*Remove the default margin in the body tag so other elements, like the footer, can span the full width.*/
+}
+.growtext:hover {
+    transform: scale(1.25);      /* Makes the element increase 1.5 times in size */
+    transition: transform .5s;  /* Makes the transform effect last .5 seconds */
+    text-shadow: 3px 3px 5px white;
+}
+.flex{
+    display: -webkit-flex;
+    display: flex; /*Displays an element as a block-level flex container, allowing child elements to move within it*/
+    flex-wrap: wrap; /*Make the flexible items wrap if necessary*/
+    overflow: hidden;
+    justify-content: center;
+}
+hr{
+    width: 90%;
+}
+h1{
+    font-size: 2em;
+}
+.center{
+    text-align:center;
+    justify-content: center,
+}
+a.anchor:link, a.anchor:visited{
+    text-decoration: none;
+    color: black;
+}
+button{
+    padding: 3px;
+    border-radius: 5px;
+    padding: 5px;
+}
+button:active{
+    background-color: rgba(157,193,225,1);
+}
+button:hover{
+    box-shadow: 0 0 10px inset rgba(157,193,225,1);
+}
+.submitBtn:hover{
+    box-shadow: 0 0 10px inset green;
+}
+.submitBtn:active{
+    background-color: greenyellow;
+}
+/*FOOTER*/
+footer{
+    padding: 10px;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+footer a:visited, footer a:link{
+    color: white;
+}
+/*CONTAINER STYLING*/
+.container {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.container:hover{
+    box-shadow: 0 0 10px;
+}
+.container h1{
+    margin: 0;
+}
+/*----------GENERAL STYLING----------*/
+
+/*----------MENU BAR----------*/
+.menu-container{
+    box-sizing: border-box;  /*include the padding and border in an element's total width and height. Default value: content-box*/
+    z-index: 1; /*Puts navbar over other elements*/
+    position: absolute; /*Absolute=The element is positioned relative to its first positioned ancestor element. This is necessary to set the element width to cover 100% of the viewscreen without default spacing.*/
+    /*position: fixed;*/ /* Fix menu bar in position so it doesn't move as viewer scrolls*/
+    top: 0; /*Positions top edge of this element down from nearest ancestor, in this case: none, so 0 from the top of the screen*/
+    left: 0; /*Positions left edge 0 from the left edge of parent element*/
+    width: 100%; /*width relative to the containing block*/
+    height: auto; /*automatically adjust its height to allow its content to be displayed correctly*/
+    opacity: 1; /*Change this to make navbar translucent*/
+    background-color: rgba(0,0,0,.75);
+    text-align: right;
+    padding: 5px;
+}
+.menu {
+    display: inline; /*displays elements on same line, rather than as blocks*/
+    font: bold 18px/18px;
+    text-align: center; /*Ensures each element within .menu has centered contents (so if you change text-align in .menu-container it stays centered here)*/
+}
+.menu a:link, .menu a:visited {
+    color: white;
+    text-decoration: none;
+}
+.menu-item{
+    display: inline-block; /*Transform will not work on inline elements, such as anchor tags. It must be set to inline-block to work.*/
+    padding: 0 15px;
+    vertical-align: middle;
+}
+.menu-item img{
+    padding: 5px 0 0 0;
+}
+.menuDrop{
+    /* To drop below menu*/
+    padding: 80px 0 0 0;
+}
+/*----------MENU BAR----------*/
+
+/*----------PAGE BANNER----------*/
+.banner{
+    position: absolute; /*The element is positioned relative to its first positioned (not static) ancestor element, in this case, the body*/
+    top: 0;             /*Sets element to the very top of the page*/
+    left: 0;            /*Sets element to the very left of the page*/
+    width: 100%;        /*Ensures that the img spans the entire div*/
+    top: 0;             /*Sets element to the very top of the page*/
+    left: 0;            /*Sets element to the very left of the page*/
+    width: 100%;        /*Ensures that the img spans the entire div*/
+    height: 400px;      /*Give enough space for the menu*/
+    background-size: cover;
+    background-position: center;
+}
+.banner-container{
+    position: absolute;
+    top: 25%;           /*Adjust margin to move the inner elements up or down */
+    width: 100%;        /*Must declare this value in order to use text-align */
+    text-align: center;
+}
+.banner h1{
+    font-size: 50px;
+}
+.banner span{
+    background-color: rgba(255,255,255,.5);
+    border-radius: 25px;
+    box-shadow: 0 0 20px white;
+}
+.bannerDrop{
+    margin: 425px 0 0 0;
+}
+/*GH_index.html's BANNER*/
+#GH_index-banner{
+    background-image: url("../img/horizon.jpg");
+}
+/*GH_beautifulsoup.html's BANNER*/
+#GH_beautifulsoup-banner{
+    background-image: url("https://images.unsplash.com/photo-1607528971899-2e89e6c0ec69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fHNvdXB8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+}
+/*GH_api_template.html's BANNER*/
+#GH_api_template-banner{
+    background-image: url("https://images.unsplash.com/photo-1521542464131-cb30f7398bc6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80")
+}
+/*----------PAGE BANNER----------*/
+
+/*----------MODAL STYLING----------*/
+.modal{
+    display: none;  /*HIDE BY DEFAULT*/
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.75);
+}
+.modal .container {
+    position: fixed;
+    z-index: 5;     /*Ensure it sits on top of other elements*/
+    background-color: white;
+    box-shadow: 0 0 10px white;
+}
+.modal form{
+    text-align: left;
+}
+.modal .buttons{
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+}
+.modal button{
+    margin: 0 5px;
+    width: 40%
+}
+/*GH_create.html ~+Add Game button modal (*/
+#add-item .container{
+    /*Center the contact-container within the view window based on its h and w dimensions*/
+    width: 400px;
+    height: 360px;
+    left: 50%;
+    margin-left: -200px; /*Subtract Half the width of the form to center it  horizontally*/
+    top: 50%;
+    margin-top: -180px; /*Subtract Half the height of the form to center it vertically*/
+}
+/*GH_delete.html ~DELETE button modal*/
+#delete-item .container{ /*See each page/section for each modal's specific size and positioning CSS*/
+    /*Center the contact-container within the view window based on its h and w dimensions*/
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    margin-left: -250px; /*Subtract Half the width of the form to center it  horizontally*/
+    height: 200px;
+    margin-top: -100px; /*Subtract Half the height of the form to center it vertically*/
+    /*Custom Styling*/
+    box-shadow: 0 0 10px red;
+    animation: warning 1s linear infinite;
+}
+@keyframes warning{
+    0% {box-shadow: 0 0 20px red;}
+    50% {box-shadow: none;}
+    100% {box-shadow: 0 0 20px red;}
+}
+#delete-item h1{
+    color: red;
+}
+/*----------MODAL STYLING----------*/
+
+/*----------GH_index.html----------*/
+/*TOP of PAGE Button*/
+.pageTop{
+    position: fixed;
+    z-index: 1;
+    bottom: 10px;
+    right: 10px;
+}
+.gameLibrary button{
+    margin-bottom: 15px;
+    width: 120px;
+}
+/*GAMING RESORUCES ~ Videos*/
+.card{
+    margin: 0 5px 10px;
+    padding: 5px;
+    border: 1px solid black;
+    width: 30vw;
+    min-width: 200px;
+    background-color: white;
+}
+.card iframe{
+    width: 100%;
+}
+/*----------GH_index.html----------*/
+
+/*----------GH_read.html*----------/
+/* Game Cards */
+.gameDB .container{
+    padding: 0;/*Change general styling*/
+    margin: 10px;/*Change general styling*/
+    border: 3px solid black;/*Change general styling*/
+    border-radius: 25px;/*Change general styling*/
+    box-shadow: 0 0 10px;
+    width:200px;
+    height: 200px;
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+.gameDB .container:hover{
+    transform: scale(1.1);      /* Makes the element increase 1.5 times in size */
+    transition: transform .5s;  /* Makes the transform effect last .5 seconds */
+    box-shadow: none;
+}
+.gameDB h4{
+    padding: 0;
+    margin: 0;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 21px 21px 0 0;
+}
+.gameDB h3{
+    color: royalblue;
+    line-height: 0;
+}
+.gameDB p:nth-of-type(1){
+    line-height: 0;
+}
+/* GameDB TABLE */
+#gameDBtable{
+    /*Hide by default to allow javaScript toggle*/
+    display:none;
+}
+table{
+    margin: 0 auto;
+    width: 90%;
+    border-collapse: collapse;
+    text-align: left;
+    background-color: rgba(255,255,255,.75);
+    box-shadow: 0 0 10px white;
+}
+table th{
+    background-color: rgba(0,0,0,.5);
+}
+table tr:nth-child(even){
+    background-color: rgba(157,193,225,.25);
+}
+.gameDBtable #column2{
+    width: 125px;
+}
+.gameDBtable #column3{
+    width: 125px;
+}
+.gameDBtable #column5{
+    width: 35px;
+}
+tfoot{
+    text-align: center;
+}
+.gameDBtable tfoot button{
+    width: 33%;
+}
+/*----------GH_read.html----------*/
+
+/*----------GH_update.html----------*/
+.update-item{
+    padding-bottom: 25px;
+}
+.update-item .container{
+    margin: 0 auto;
+    width: fit-content;
+}
+.update-item button{
+    width: 70px;
+}
+.deleteBtn:hover{
+    box-shadow: 0 0 10px inset red;
+}
+.deleteBtn:active{
+    background-color: red;
+}
+/*----------GH_update.html----------*/
+
+/*----------GH_create_wishlist.html CREATE WISHLIST RECORD----------*/
+.position-relative{
+    /*In order for the button to appear at the bottom of parent elements, the parents must get this styling*/
+    position: relative;
+    padding-bottom: 20px;
+}
+.create_wishlist {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    bottom: 5px;
+}
+.create_wishlist input{
+    display: none;  /*Abstract the inputs so the user doesn't see them*/
+}
+/*wishlist icon */
+.create_wishlist button{
+    border: none;
+    background-color: transparent;
+    color: gray;
+}
+
+@keyframes grow { 0%, 17.5% { font-size: 0; } }
+
+.create_wishlist button:active{
+    color: red;
+    will-change: font-size;
+    animation: grow .75s cubic-bezier(.25, .90, .33, 1.75);
+}
+.create_wishlist button:hover{
+    /*Remove general styling applied to all buttons*/
+    cursor: pointer;
+    box-shadow: none;
+}
+/*----------GH_create_wishlist.html CREATE WISHLIST RECORD----------*/
+
+/*----------GH_read_wishlist.html READ wishlist DB----------*/
+.wish .container{
+    border: 3px solid black;
+    width: 400px;
+    box-shadow: 0 0 40px inset lightyellow;
+}
+.wish .container:hover{
+    box-shadow: 0 0 40px inset lightyellow, 0 0 10px;
+}
+.wish img{
+    height: 80px;
+    width: 208px;
+}
+.wish input{
+    display: none;
+}
+/*----------GH_read_wishlist.html READ wishlist DB----------*/
+
+/*----------GH_bsoup.html and GH_beautifulsoup.html----------*/
+.soup{
+    margin: 0 auto;
+    width: 90%;
+}
+.soup .container{
+    width: 220px;
+}
+.soup img{
+    width: 180px;
+    height: 135px;
+}
+.soup .text{
+    text-align: left;
+}
+#soupSourceCode{
+    margin: 0 auto;
+    width: 90%;
+    border: 1px solid black;
+    text-align: left;
+    word-wrap: break-word;
+}
+/*----------GH_bsoup.html and GH_beautifulsoup.html----------*/
+
+/*----------GH_api_template.html----------*/
+#apiSourceCode{
+    margin: 0 auto;
+    word-wrap: break-word;
+    width: 90%;
+    border: 1px solid black
+}
+/*----------GH_api_template.html----------*/
+
+/*----------GH_read_api.html----------*/
+.apiQuery{
+    background-color: lightyellow;
+}
+.apiQuery .container{
+    margin: 10px auto 0;
+    width: 250px;
+    background-color: white;
+}
+.apiQuery img, .api img{
+    height: 80px;
+    width: 208px;
+}
+.api{
+    margin: 0 auto;
+    width: 90%;
+}
+.api .container{
+    width: 250px;
+}
+.salePrice b{
+    padding: 10px;
+    border-radius: 100%;
+    background: rgba(255,255,0,.4);
+    color: limegreen;
+}
+.api p s{
+    color: red;
+}
+/*----------GH_read_api.html----------*/
