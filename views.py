@@ -31,7 +31,7 @@ def include_templates(request):
 #   READ function access the model manager and returns all records. The html content is included from GH_read.html, where it is parsed as as_p and as as_table.
 #   BEAUTIFULSOUP web scraping is rendered via the create_soup function
 #   API info is passed in from the api and apiQuery functions
-def GH_index(request):                          # CREATE and READ RECORDS
+def GH_index(request):                         
     #CREATE a RECORD IN THE DB
     form = GameForm(data=request.POST or None)  # Declare a variable 'form' and equate it to the existing Account form (as defined in forms.py); request.Post or None is the default syntax to take any input from the form and put it into this form.
     if request.method == 'POST':
