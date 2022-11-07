@@ -20,8 +20,8 @@ Specific tasks were assigned by the sprint leader, to be completed within a cert
 - Friday code retrospectives
 
 ## Code Summary
-![CRUD](README/GameHoardCRUD.mp4)
-<iframe src="https://giphy.com/embed/ihXJPTJ9Dtd8Uusyhp" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+![CRUD](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/README/GameHoardCRUD.mp4)
+
 ## Source Credits
 - Web scraping for board game reviews: [BoardGameQuest](https://www.boardgamequest.com/category/game-reviews/)
 - API credit for video game prices: [CheapShark](https://apidocs.cheapshark.com/#c33f57dd-3bb3-3b1f-c454-08cab413a115)
