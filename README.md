@@ -20,7 +20,7 @@ Specific tasks were assigned by the sprint leader, to be completed within a cert
 - Friday code retrospectives
 
 ## Code Summary
-![CRUD](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/README/GameHoardCRUD.mp4)
+![CRUD](README/GameHoardCRUD.mp4)
 
 ## Source Credits
 - Web scraping for board game reviews: [BoardGameQuest](https://www.boardgamequest.com/category/game-reviews/)
