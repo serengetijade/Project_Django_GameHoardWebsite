@@ -28,10 +28,10 @@ def include_templates(request):
 ## GH_index.html (CREAT, READ, RENDER BEAUTIFUL SOUP, RENDER API)------------------------------------------------------
 # Notes: The index (home) page is where users can create a database record for a game in their collection, access a link to another page to edit it, view records in the WishList DB, view rendered beautifulsoup content, and view rendered API content.
 #   CREATE function is accessed via an included modal from GH_create.html (see modal instructions in gameHoard.js). The function must be included as part of this view, since here is where the CREATE function is actually performed (the modal is part of this page)..
-#   READ function access the model manager and returns all records. The html content is included from GH_read.html, where it is parsed as as_p and as as_table.
+#   READ function in this view accesses the model manager and returns all records. The html content is included from GH_read.html, where it is parsed as as_p and as as_table.
 #   BEAUTIFULSOUP web scraping is rendered via the create_soup function
 #   API info is passed in from the api and apiQuery functions
-def GH_index(request):                         
+def GH_index(request):
     #CREATE a RECORD IN THE DB
     form = GameForm(data=request.POST or None)  # Declare a variable 'form' and equate it to the existing Account form (as defined in forms.py); request.Post or None is the default syntax to take any input from the form and put it into this form.
     if request.method == 'POST':
@@ -67,13 +67,13 @@ def GH_index(request):
         'responseList':responseList,            # Pass in results from API
     }
     return render(request, "GameHoard/GH_index.html", content)
-
-
 ## GH_index.html (CREAT, READ, RENDER BEAUTIFUL SOUP, RENDER API)------------------------------------------------------
 
 
 ## GH_update.html (UPDATE and DELETE A RECORD IN THE DB) --------------------------------------------------------------
-def update(request, pk):                        # When a request is called by the user, it goes to the url 'switchboard', which directs it to a certain method
+# Notes: When a request is called by the user, by clicking on an anchor tag (i.e a 'Game Card' on the index page) it goes to the url 'switchboard', which points to this method.
+
+def update(request, pk):
     #GET FORM OBJECT VIA THE MODEL MANAGER
     item = get_object_or_404(Game, pk=pk)       # Assigns a variable to represent this built-in function from the django.shortcuts module. Query the responseListbase for the Product (using this built-in function) and it's value at that primary key (which is now converted to an integer).
     form = GameForm(data=request.POST or None, instance=item)    #Invoke the ProductForm, get the information from the form that was sent via the post method (or provide a none value), then use that information to create an instance called item. The instance 'item' then passes back all of its values from its various fields

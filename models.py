@@ -26,8 +26,6 @@ class Game(models.Model):
     #Object manager:
     GameModel = models.Manager()
 
-    ##Define a function or multiple functions that will run when this function is called.
-
     # Returns values (of the attributes) to the admin
     def __str__(self):
         return self.Name
