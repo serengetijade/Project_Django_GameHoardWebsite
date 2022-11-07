@@ -27,7 +27,7 @@ Specific tasks were assigned by the sprint leader, to be completed within a cert
 Two databases were created for this project: 
 - Game databaste: record user form input of games in their collection.
 - WishList database: populate a form for each beautifulsoup and API result, and then create or delete a record by clicking 'like' button.
-[models.py snippet](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/f484f4bf1e64d23b1a1adc751e37468c578a3076/models.py#L3)
+https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/f484f4bf1e64d23b1a1adc751e37468c578a3076/models.py#L3
 
 ## Index Page
 The index (home) page is where users can create a database record for a game in their collection, access a link to another page to edit it, view records in the WishList DB, view rendered beautifulsoup content, and view rendered API content. It is where a lot of other functions come together. Multiple CRUD fuctions have been abstracted, so the user experiences everything seamlessly on (almost) one page. 
