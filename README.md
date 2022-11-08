@@ -26,16 +26,19 @@ Specific tasks were assigned by the sprint leader, to be completed within a cert
 ## Index Page
 The [index (home) page](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_index.html) is where users can create a database record for a game in their collection, access a link to another page to edit it, view records in the WishList DB, view rendered beautifulsoup content, and view rendered API content. 
 It is where several functions come together. These CRUD functions have been abstracted, so the user experiences everything seamlessly on (almost) one page. 
+https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/1843001951039e2a3bad32a7aecd14588784f724/templates/GameHoard/GH_index.html#L6-L81
 - CREATE function is accessed via an included modal from: [GH_create.html](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_create.html) (see modal instructions in [gameHoard.js](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/static/js/gameHoard.js)). The function must be included as part of this view, since here is where the CREATE function is actually performed (by being included, the modal is part of this page)..
 - READ function in this view accesses the model manager and returns all records. The html content is included from [GH_read.html](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_read.html), where it is parsed as as_p and as as_table.
 - Beautifulsoup web scraping is rendered by calling the create_soup function and passing its content in via a variable.
 - API info is passed in from the api and apiQuery functions.
+
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c233ee5333e5dc06daf7c79c938c2228/views.py#L34-L69
 
 ## Models
 Two databases [models](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/models.py) were created for this project: 
 - Game databaste: create a record from form inputs of games in the user's collection. 
-- WishList database: populate a form for each beautifulsoup and API result, and then create or delete a record by clicking 'like' button.
+- WishList database: populate a form for each beautifulsoup and API result, and then create or delete a record by clicking 'favorite' button.
+
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c233ee5333e5dc06daf7c79c938c2228/models.py#L3-L41
 
 ## Create Form ~ Game database
@@ -54,16 +57,33 @@ This content is 'triggered' by clicking the submit element.
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/655a0c33e7d9c7c2a48e118493d47370c074dcac/templates/GameHoard/GH_create_wishlist.html#L9-L15
 
 ## Create Function (views.py)
-Recall that the function to create a record in the Game database is part of the [GH_index function in views.py](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/views.py), discusses above- it takes user input from a form ([GH_create.html](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_create.html)) and saves it to the database.  
+Recall that the function to create a record in the Game database is part of the [GH_index function in views.py](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/views.py), 
+discussed above- it takes user input from a form ([GH_create.html](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_create.html)) and saves it to the Game database.  
 
-To create a WishList record, the function must gather dynamic content from each beautifulsoup and API result. As each result is read and rendered as content, a form is generated as well: 
+To create a WishList record, the function gathers dynamic content from each beautifulsoup and API result. As each result is read and rendered as content, a form is generated as well: 
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/655a0c33e7d9c7c2a48e118493d47370c074dcac/templates/GameHoard/GH_create_wishlist.html#L9-L15
 
-The inputs of each form is then called by the create_wishlist function, and used to create a record when the 'like' button is triggered.
+The inputs of each form is then called by the create_wishlist function, and used to create a record when the 'favorite' button is triggered. The input forms are hidden with CSS, so all the user sees is the 'favorite' button. 
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c233ee5333e5dc06daf7c79c938c2228/views.py#L219-L232
 
+## Read
+Displaying the Game and WishList databases call all records via each model manager. 
+A template is used in each case to add styling to each record. 
+In the case of the Game database, records are displayed in paragraph format, but also rendered as a table, 
+which is a modal the user can hide or display by the click of a button (toggled with JavaScript), see  [gameHoard.js](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/static/js/gameHoard.js).
+https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/1843001951039e2a3bad32a7aecd14588784f724/templates/GameHoard/GH_read.html#L1-L62
 
+## Update and Delete ~ Game database
+The [update page](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_update.html) is accessed by clicking on an element (anchor) in another document ([GH_read.html](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_read.html))
+The 'UpdateGame' is a 'shortcut' defined in [urls.py](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/urls.py), which points the way to a function in [views.py](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/views.py).
+The views.py function (in this case named 'updateGameDB') passes in the primary key from the element that was initially clicked.
+https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/1843001951039e2a3bad32a7aecd14588784f724/templates/GameHoard/GH_update.html#L11-L21
 
+The [delete form](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_delete.html) is included in the update page as a modal popup, see  [gameHoard.js](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/static/js/gameHoard.js).
+https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/1843001951039e2a3bad32a7aecd14588784f724/templates/GameHoard/GH_delete.html#L9-L20
+
+Confirming 'DELETE' in the modal popup submits the form and deletes the record. 
+https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c233ee5333e5dc06daf7c79c938c2228/views.py#L76-L97
 
 ## Source Credits
 - Web scraping for board game reviews: [BoardGameQuest](https://www.boardgamequest.com/category/game-reviews/)
