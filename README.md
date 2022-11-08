@@ -61,10 +61,9 @@ an attribute within the html form tag, which points to a 'shortcut' in [urls.py]
 which points to a function (create_wishlist) in [views.py](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/views.py).
 By using the django include tag, it's like this content is part of the parent document.
 And because it's being included INSIDE an iteration loop (in [GH_read_soup](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_read_soup.html) and [GH_read_api](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_read_api.html)) it can access the django tags with each iteration's specific info.
-This content is 'triggered' by clicking the submit element. 
-https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/655a0c33e7d9c7c2a48e118493d47370c074dcac/templates/GameHoard/GH_create_wishlist.html#L9-L15
+https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/6105f136c05d9029101ffb868a0ac61b4d9c4120/templates/GameHoard/GH_read_soup.html#L2-L16
 
-As each result is read and rendered as content, a form is generated as well: 
+As each result is read and rendered as content, a form is generated as well. The wishlist content is 'triggered' by clicking the submit element. 
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/655a0c33e7d9c7c2a48e118493d47370c074dcac/templates/GameHoard/GH_create_wishlist.html#L9-L15
 
 The inputs of each form is then called by the create_wishlist function, and used to create a record when the 'favorite' button is triggered. 
