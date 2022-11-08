@@ -95,7 +95,6 @@ def update(request, pk):
         item.delete()                       #delete() is a built-in model Manager method
         return redirect('GameHoard')
     return render(request, "GameHoard/GH_index.html")
-
 ## GH_update.html (UPDATE and DELETE A RECORD IN THE DB) --------------------------------------------------------------
 
 
@@ -232,9 +231,11 @@ def create_wishlist(request):
     return redirect('GameHoard')  # Redirect to the 'shortcut' (as defined in urls.py)
 ## GH_create_wishlist.html---------------------------------------------------------------------------------------------
 
+## GH_delete_wishlist.html--------------------------------------------------------------------------------------------
 def delete_wishlist(request): # When a request is called by the user, it goes to the url 'switchboard', which directs it to a certain method
     Name = request.POST.get('Name', None)
     record = WishList.WishListModelMgr.get(Name=Name)
     record.delete()
     #WishList.WishListModelMgr.delete(Name)
     return redirect('GameHoard')  # Redirect to the 'shortcut' (as defined in urls.py)
+## GH_delete_wishlist.html--------------------------------------------------------------------------------------------
