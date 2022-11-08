@@ -87,13 +87,14 @@ named 'updateGameDB', which passes in the primary key from the element that was 
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/1843001951039e2a3bad32a7aecd14588784f724/templates/GameHoard/GH_update.html#L11-L21
 
 The [delete form](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_delete.html) is included in the update page as a modal popup, see  [gameHoard.js](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/static/js/gameHoard.js).
+Because it is included, it recieves the primary key the same way the update page does.
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/1843001951039e2a3bad32a7aecd14588784f724/templates/GameHoard/GH_delete.html#L9-L20
 
 Confirming 'DELETE' in the modal popup submits the form and deletes the record. 
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c233ee5333e5dc06daf7c79c938c2228/views.py#L76-L97
 
 ## Delete ~ WishList database
-When each WishList record is read and rendered from the database, a form is created using each record's primary key and it is assigned an action that will call the [delete_wishlist function in views.py](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/views.py).
+When each WishList record is read and rendered from the database, a form is created using each record's primary key and it is assigned an action that will call the delete_wishlist function in [views.py](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/views.py).
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/1843001951039e2a3bad32a7aecd14588784f724/templates/GameHoard/GH_read_wishlist.html#L3-L19
 
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c233ee5333e5dc06daf7c79c938c2228/views.py#L240-L245
@@ -133,8 +134,8 @@ https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c2
 |wheel               |0.37.1        |
 
 </details>
-This repository is ready to download as a complete django app. Note that the readme file included only contains content for this readme, and is not necessary for the app to run.
-To see this app in action, ensure the required packages are installed then add this repository to your project file. 
+If you would like to see the app in action for yourself, the repository is ready to download as a complete django app. Note that the readme file included only contains content for this readme, and is not necessary for the app to run.
+To download, ensure the required packages are installed then add this repository to your project file. 
 
 1- In the project's <b>settings.py</b> file, include the following: 
 
