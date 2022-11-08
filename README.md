@@ -38,17 +38,29 @@ Two databases [models](https://github.com/serengetijade/Project_Django_GameHoard
 - WishList database: populate a form for each beautifulsoup and API result, and then create or delete a record by clicking 'like' button.
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c233ee5333e5dc06daf7c79c938c2228/models.py#L3-L41
 
-## Create ~ Game database
-This page is accessed by clicking on an element (button) in GH_index.html.
+## Create Form ~ Game database
+[This modal](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_create.html) is accessed by clicking on an element (button) in GH_index.html.
 By using the django include tag, it's like this content is part of the [GH_index document](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_index.html).
 Therefore, the form and the function to create a record, is defined as part of the [GH_index function in views.py](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/views.py).
-JavaScript is used to show and hide this element as a modal pop up.
+JavaScript is used to show and hide this element as a modal pop up, see  [gameHoard.js](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/static/js/gameHoard.js).
+https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/655a0c33e7d9c7c2a48e118493d47370c074dcac/templates/GameHoard/GH_create.html#L12-L23
 
+## Create Form ~ WishList database
+[This form](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_create_wishlist.html) is defined by action = a django url tag, which points to a 'shortcut' in urls.py, which points to a function in views.py.
+The function to create a WishList record is defined in [views.py](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/views.py).
+By using the django include tag, it's like this content is part of the parent document.
+And because it's being included INSIDE an iteration loop (in [GH_read_soup](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_read_soup.html) and [GH_read_api](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_read_api.html)) it can access the django tags with each iteration's specific info.
+This content is 'triggered' by clicking the submit element.
+https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/655a0c33e7d9c7c2a48e118493d47370c074dcac/templates/GameHoard/GH_create_wishlist.html#L9-L15
 
+## Create Function (views.py)
+Recall that the function to create a record in the Game database is part of the [GH_index function in views.py](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/views.py), discusses above- it takes user input from a form ([GH_create.html](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/templates/GameHoard/GH_create.html)) and saves it to the database.  
 
+To create a WishList record, the function must gather dynamic content from each beautifulsoup and API result. As each result is read and rendered as content, a form is generated as well: 
+https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/655a0c33e7d9c7c2a48e118493d47370c074dcac/templates/GameHoard/GH_create_wishlist.html#L9-L15
 
-
-
+The inputs of each form is then called by the create_wishlist function, and used to create a record when the 'like' button is triggered.
+https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c233ee5333e5dc06daf7c79c938c2228/views.py#L219-L232
 
 
 

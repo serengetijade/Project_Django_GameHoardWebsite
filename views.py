@@ -217,7 +217,7 @@ def api():
 
 ## GH_create_wishlist.html (CREATE a record from API results via a form in the api.html--------------------------------
 def create_wishlist(request):
-    #Gather (API) info from the input form by using the .get method
+    #Gather (beautifulsoup/API) info from the input form by using the .get method
     Name = request.POST.get('Name', None)
     Thumb = request.POST.get('Thumb', None)
     Price = request.POST.get('Price', None)
@@ -230,11 +230,6 @@ def create_wishlist(request):
     else:
         WishList.WishListModelMgr.create(Name=Name, Thumb=Thumb, Price=Price)
     return redirect('GameHoard')  # Redirect to the 'shortcut' (as defined in urls.py)
-
-###Notes:
-# Make sure to add the wishList () 'wishList'] call to Gh_index.html, and then pass in the rusults to the content= {}
-    #wishList = WishList.WishListModelMgr.all()      #This will go on whatever 'page view' that displays the list of WishList records
-    #wishList = WishList.WishListModelMgr.all()      #This will go on whatever 'page view' that displays the list of WishList records
 ## GH_create_wishlist.html---------------------------------------------------------------------------------------------
 
 def delete_wishlist(request): # When a request is called by the user, it goes to the url 'switchboard', which directs it to a certain method
