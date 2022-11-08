@@ -113,6 +113,8 @@ API source content credit:  [CheapShark](https://apidocs.cheapshark.com/#c33f57d
 Another source for dynamic content is by using an application programming interface to request data from a website. The returned request was parsed into a dictionary, which was then iterated through and rendered as html objects. 
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c233ee5333e5dc06daf7c79c938c2228/views.py#L115-L141
 
+![Favorite](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/readme/favoriteAPI.gif)
+
 ## Download Instructions
 <details><summary>Requirements</summary>
 
