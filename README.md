@@ -51,7 +51,6 @@ By using the django include tag, it's like this content is part of the [GH_index
 Therefore, the form and the function to create a record, is defined as part of the GH_index function in [views.py](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/views.py).
 JavaScript is used to show and hide this element as a modal pop up, see  [gameHoard.js](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/static/js/gameHoard.js).
 
-
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/655a0c33e7d9c7c2a48e118493d47370c074dcac/templates/GameHoard/GH_create.html#L12-L23
 
 ## Create Form ~ WishList database
@@ -102,12 +101,15 @@ https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c2
 ## BeautifulSoup Web Scraping
 BeautifulSoup source content credit: [BoardGameQuest](https://www.boardgamequest.com/category/game-reviews/)
 
+![bsoup Display](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/readme/soup1.jpg)
+
 To provide dynamic content on the page, beautifulsoup was used to scrape a popular board game review page. The results of the list were iterated through and rendered as html objects. 
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c233ee5333e5dc06daf7c79c938c2228/views.py#L115-L141
 
 ## API Requests
 API source content credit:  [CheapShark](https://apidocs.cheapshark.com/#c33f57dd-3bb3-3b1f-c454-08cab413a115)
 
+![API Display](https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/main/readme/api1.jpg)
 Another source for dynamic content is by using an application programming interface to request data from a website. The returned request was parsed into a dictionary, which was then iterated through and rendered as html objects. 
 https://github.com/serengetijade/Project_Django_GameHoardWebsite/blob/c8685717c233ee5333e5dc06daf7c79c938c2228/views.py#L115-L141
 
